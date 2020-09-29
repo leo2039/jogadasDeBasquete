@@ -15,9 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Leo
  */
-public class TelaTest {
+public class TesteJogadas {
     
-    public TelaTest() {
+    public TesteJogadas() {
     }
     
     @BeforeAll
@@ -36,16 +36,9 @@ public class TelaTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of main method, of class Tela.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        Tela.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 }

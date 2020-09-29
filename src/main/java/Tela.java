@@ -1,7 +1,7 @@
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import jdk.nashorn.internal.ir.BreakNode;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,8 +14,8 @@ import jdk.nashorn.internal.ir.BreakNode;
  */
 public class Tela extends javax.swing.JFrame {
 
-    private int x = 0;
-    Jogadas[] jogada = new Jogadas[100];
+    private int x = 0; // Incia o contador de Array dos objetos
+    Jogadas[] jogada = new Jogadas[100]; //Cria o Objeto jogada
 
     /**
      * Creates new form Tela
@@ -99,9 +99,9 @@ public class Tela extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtpontuacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGravar)
-                    .addComponent(btnListar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnListar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGravar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -111,82 +111,54 @@ public class Tela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGravarActionPerformed
-        // TODO add your handling code here:
-        int pontuacao = Integer.parseInt(txtpontuacao.getText());
-        if ((pontuacao >= 0) && (pontuacao < 1000)) {
+        //Codigo de criação e caputra o placar do objeto jogada
 
-            jogada[x] = new Jogadas(pontuacao);
+        int pontuacao = Integer.parseInt(txtpontuacao.getText()); //Trasforma a string do campo TextField para uma valor inteiro 
+        if ((pontuacao >= 0) && (pontuacao < 1000)) { // faz o teste se numero digitado é maior que zero e menor que 1000
 
-            jogada[x].setJogos(pontuacao);
+            jogada[x] = new Jogadas(pontuacao); // Inicia o Objeto 
+
+            jogada[x].setJogos(pontuacao); // grava a pontuação no obejeto x 
             JOptionPane.showMessageDialog(this, "Placar do jogo " + (x + 1) + " Gravada com sucesso!");
             x++;
         } else {
-            JOptionPane.showMessageDialog(this, "Placar do jogo menor que ZERO ou maior que MIL");
+            JOptionPane.showMessageDialog(this, "Placar do jogo deve ser mair que ZERO e menor que MIL potos");
         }
 
 
     }//GEN-LAST:event_btnGravarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel dtmplacar = (DefaultTableModel) tblplacar.getModel();
+        // Codigo de verificação das pontuação e records 
+        
+        DefaultTableModel dtmplacar = (DefaultTableModel) tblplacar.getModel(); // Cria o modelo da tabelas para vizuaçização 
+        //Criação das variaveis de controle 
         int minimo = 9999;
         int maximo = 0;
         int recod_minimo = 0;
         int record_maximo = 0;
 
-        for (int i = 0; i < 100; i++) {
-            if (jogada[i] != null) {
-                if (jogada[i].getJogos() > maximo) {
+        for (int i = 0; i < 100; i++) { 
+            if (jogada[i] != null) { //verificação se o array esta vazio 
+                if (jogada[i].pMax(jogada[i].getJogos(), maximo)){  //verica a pontuação maxima
                     maximo = jogada[i].getJogos();
                     record_maximo++;
                 }
-                if (jogada[i].getJogos() < minimo) {
+                if (jogada[i].pMin(jogada[i].getJogos(), minimo)) { // verificador de pontuação minima 
                     minimo = jogada[i].getJogos();
                     recod_minimo++;
                 }
-                Object[] dados = {i + 1, jogada[i].getJogos(), minimo, maximo, recod_minimo - 1, record_maximo - 1};
-                dtmplacar.addRow(dados);
+                Object[] dados = {i + 1, jogada[i].getJogos(), minimo, maximo, recod_minimo - 1, record_maximo - 1}; // trasforma a os das em um obejeto para adicionar na tabela
+                dtmplacar.addRow(dados); // adiciona a lina na tabela do botão listar
+                
 
             }
 
         }
     }//GEN-LAST:event_btnListarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Tela().setVisible(true);
-            }
-        });
-    }
+    
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGravar;

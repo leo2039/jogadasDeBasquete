@@ -1,9 +1,10 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Leo
@@ -27,5 +28,21 @@ public class Jogadas {
     public void setJogos(int jogos) {
         this.jogos = jogos;
     }
-
+    
+    public boolean pMin(int pJogo, int pMin){
+        if(pJogo < pMin){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    
+    public boolean pMax(int pJogo, int pMax){
+        if(pJogo > pMax){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

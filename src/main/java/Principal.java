@@ -11,12 +11,9 @@
 public class Principal {
 
     public static void main(String[] args) {
-        
-        Tela t = new Tela();
-        t.setVisible(true);
-        
-        
 
-        
+        Tela t = new Tela(); 
+        t.setVisible(true); // Incia o Objeto tele e seta como sempre visivel 
+
     }
 }
