@@ -3,6 +3,8 @@ Esta é uma versão simples de um programa que lê à pontuação de N partidas 
 
 
 #Rodando o programa 
+
+
 Para rodar o programa deve ser acessado a classe principal que tem por definição chamar a classe Tela.java.
 
 Com a Tela.java aberta você deve inserir o valor do placar do jogo atual e apertar o botão gravar. 
