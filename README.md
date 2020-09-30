@@ -9,8 +9,7 @@ Com a Tela.java aberta você deve inserir o valor do placar do jogo atual e aper
 Pode ser gravado até 100 jogos diferentes. Para listar os resultados da temporada basta clicar no botão Listar.   
 
 
-
-#Classes 
+#Classe
 
 #Jogasdas.java
 
