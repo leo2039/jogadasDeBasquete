@@ -43,6 +43,7 @@ public class Tela extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnGravar.setText("Gravar");
+        btnGravar.setFocusCycleRoot(true);
         btnGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGravarActionPerformed(evt);
@@ -130,17 +131,18 @@ public class Tela extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // Codigo de verificação das pontuação e records 
-        
+
         DefaultTableModel dtmplacar = (DefaultTableModel) tblplacar.getModel(); // Cria o modelo da tabelas para vizuaçização 
-        //Criação das variaveis de controle 
+
+//Criação das variaveis de controle 
         int minimo = 9999;
         int maximo = 0;
         int recod_minimo = 0;
         int record_maximo = 0;
 
-        for (int i = 0; i < 100; i++) { 
+        for (int i = 0; i < 100; i++) {
             if (jogada[i] != null) { //verificação se o array esta vazio 
-                if (jogada[i].pMax(jogada[i].getJogos(), maximo)){  //verica a pontuação maxima
+                if (jogada[i].pMax(jogada[i].getJogos(), maximo)) {  //verica a pontuação maxima
                     maximo = jogada[i].getJogos();
                     record_maximo++;
                 }
@@ -150,15 +152,12 @@ public class Tela extends javax.swing.JFrame {
                 }
                 Object[] dados = {i + 1, jogada[i].getJogos(), minimo, maximo, recod_minimo - 1, record_maximo - 1}; // trasforma a os das em um obejeto para adicionar na tabela
                 dtmplacar.addRow(dados); // adiciona a lina na tabela do botão listar
-                
 
             }
 
         }
     }//GEN-LAST:event_btnListarActionPerformed
 
-    
-     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGravar;
