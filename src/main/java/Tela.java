@@ -143,12 +143,12 @@ public class Tela extends javax.swing.JFrame {
         for (int i = 0; i < 100; i++) {
             if (jogada[i] != null) { //verificação se o array esta vazio 
                 if (jogada[i].pMax(jogada[i].getJogos(), maximo)) {  //verica a pontuação maxima
-                    maximo = jogada[i].getJogos();
-                    record_maximo++;
+                    maximo = jogada[i].getJogos();// se função retorna verdadiro variavel maxima recebe o valor da pontuação do placar atual
+                    record_maximo++;// se função retorna verdadeiro conatdor do record maximo e incrementado somando mais 1
                 }
                 if (jogada[i].pMin(jogada[i].getJogos(), minimo)) { // verificador de pontuação minima 
-                    minimo = jogada[i].getJogos();
-                    recod_minimo++;
+                    minimo = jogada[i].getJogos();// se função retorna verdadiro variavel minimo recebe o valor da pontuação do placar atual 
+                    recod_minimo++;// se função retorna verdadeiro conatdor do record minimo e incrementado somando mais 1
                 }
                 Object[] dados = {i + 1, jogada[i].getJogos(), minimo, maximo, recod_minimo - 1, record_maximo - 1}; // trasforma a os das em um obejeto para adicionar na tabela
                 dtmplacar.addRow(dados); // adiciona a lina na tabela do botão listar

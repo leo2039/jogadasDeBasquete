@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Leo
  */
 public class JogadasTest {
-    private Jogadas j;
+    private Jogadas j; // declaração da variavel objto
     
     
     public JogadasTest() {
@@ -32,7 +32,7 @@ public class JogadasTest {
     
     @BeforeEach
     public void setUp() {
-       j = new Jogadas(0);
+       j = new Jogadas(0); // inica o objeto para teste 
     }
     
     @AfterEach

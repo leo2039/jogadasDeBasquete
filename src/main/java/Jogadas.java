@@ -1,5 +1,3 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,7 +27,7 @@ public class Jogadas {
         this.jogos = jogos;
     }
     
-    public boolean pMin(int pJogo, int pMin){
+    public boolean pMin(int pJogo, int pMin){ //função que testa a houve placar minimo recebe como parametro dois valores inteiros placar do jogo atual e valor da pontuação minima atualizada
         if(pJogo < pMin){
             return true;
         }else{
@@ -38,7 +36,7 @@ public class Jogadas {
         
     }
     
-    public boolean pMax(int pJogo, int pMax){
+    public boolean pMax(int pJogo, int pMax){ //Função que retorna falso ou verdadiro para placar maximo , recebe dois inteiros como parametro 
         if(pJogo > pMax){
             return true;
         }else{
