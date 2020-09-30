@@ -32,3 +32,5 @@ possui um Campo de texto para o usuário digitar o placar do jogo
 Possui também uma tabela onde e listado as estatísticas da temporada. 
 
  
+#JogadasTest.java
+Possui a Classe que testa as funções Placar minimo e placra maximo recebendo valores pre definidos e teste esperando resultado verdadeiro 
